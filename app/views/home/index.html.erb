@@ -1,0 +1,28 @@
+<div class = "mt-5 mx-3">
+    <div>
+        <h1>Bonjour Visiteur, et <span>Bienvenue sur The Gossip Project</span></h1>
+        <h5>Voici la liste des potins que nous t'avons préparé</h5>
+    </div>
+
+    <div class="row">
+        <% @gossips.each_with_index do |gossip, index| %>
+            <div class="col-12 col-sm-4 my-3">
+                <div class="card h-100 border border-dark">
+                    <div class="card-header text-center pb-1 text-warning bg-dark">
+                        <h5>Gossip nº <%=index + 1%></h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">By <%=gossip.user.first_name%></h4>
+                        <p class="card-text"><%=gossip.title%></p>
+                        <p><%= link_to "Voir plus", gossip_path(@gossips.find(index+1))%></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    </div>
+
+</div>
+
+
